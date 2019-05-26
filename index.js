@@ -26,10 +26,9 @@ bot.on('message', function (event) {
     var receiveText = event.message.text;
     let sourceType = event.source.type
     let sourceId = getSourceId(event, sourceType);
-    let sourceList = getSourceList(sourceType);
-    console.log('Current source:\n', event.source.type, sourceId);
 
     initTranslateModeList(sourceId);
+    console.log('Current source:\n', event.source.type, sourceId);
     console.log('CheckTransModeList:\n', checkTransModeList);
 
     if (receiveText === '翻譯') {
@@ -69,11 +68,16 @@ function initialize(sourceType, sourceId, receiveText, firstTranslate) {
     } else if (receiveText === '#') {
         replyMessage = '可翻譯語言有：\n' + getLanguageList();
     } else if (!isNaN(receiveText)) {
-        if (Number(receiveText) < languages.length) {
-            sourceList[sourceId].defaultLanguage = Number(receiveText);
-            bot.push(sourceId, '目前翻譯語言：' + languages[Number(receiveText)].language);
+        if (Number(receiveText) >= 0) {
+            if (Number(receiveText) < languages.length) {
+                sourceList[sourceId].defaultLanguage = Number(receiveText);
+                bot.push(sourceId, '目前翻譯語言：' + languages[Number(receiveText)].language);
+            } else {
+                bot.push(sourceId, `蝦七八打什麼洨，數字就只到 ${languages.length - 1} 而已\n${getLanguageList()}`);
+            }
+
         } else {
-            bot.push(sourceId, `蝦七八打什麼洨，數字就只到 ${languages.length - 1} 而已！`);
+            bot.push(sourceId, `蝦七八打什麼洨，數字就只有這些而已\n${getLanguageList()}`);
         }
     } else {
         if (firstTranslate) {
