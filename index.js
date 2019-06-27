@@ -43,7 +43,7 @@ bot.on('message', function (event) {
             replyMessage = initialize(sourceType, sourceId, receiveText, firstTranslate);
             sendMessage(event, replyMessage);
         } else {
-            bot.push(sourceId, '塞拎娘！我沒厲害到可以辨識文字以外的東西！');
+            bot.push(sourceId, '我沒厲害到可以辨識文字以外的東西！');
         };
         firstTranslate = false;
     };
@@ -73,11 +73,11 @@ function initialize(sourceType, sourceId, receiveText, firstTranslate) {
                 sourceList[sourceId].defaultLanguage = Number(receiveText);
                 bot.push(sourceId, '目前翻譯語言：' + languages[Number(receiveText)].language);
             } else {
-                bot.push(sourceId, `蝦七八打什麼洨，數字就只到 ${languages.length - 1} 而已\n${getLanguageList()}`);
+                bot.push(sourceId, `數字就只到 ${languages.length - 1} 而已\n${getLanguageList()}`);
             }
 
         } else {
-            bot.push(sourceId, `蝦七八打什麼洨，數字就只有這些而已\n${getLanguageList()}`);
+            bot.push(sourceId, `數字就只有這些而已\n${getLanguageList()}`);
         }
     } else {
         if (firstTranslate) {
@@ -132,7 +132,7 @@ function sendMessage(event, message) {
 }
 
 function getWelcomeString() {
-    var welcomeMessage = '塞拎娘勒～\n輸入下列代碼幫你翻譯翻譯，你想翻譯成何種語言？\n';
+    var welcomeMessage = '哈囉～\n輸入下列代碼幫你翻譯翻譯，你想翻譯成何種語言？\n';
     welcomeMessage += getLanguageList()
     return welcomeMessage
 }
