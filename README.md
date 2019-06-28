@@ -17,3 +17,13 @@ This product is a translate line-bot can be used to translate in user, group or 
 #### using npm:
 - linebot(https://www.npmjs.com/package/linebot)
 - @k3rn31p4nic/google-translate-api(https://www.npmjs.com/package/@k3rn31p4nic/google-translate-api)
+
+#### Actual Pictures
+- type [翻譯] to start the line bot
+![image](https://github.com/chiaqingwu/line-bot/blob/master/pictures/01_start.png)
+- You have 3 languages can use.
+![image](https://github.com/chiaqingwu/line-bot/blob/master/pictures/02_lang.png)
+- Using [#] and [?]
+![image](https://github.com/chiaqingwu/line-bot/blob/master/pictures/03_optional.png)
+- Error Handling
+![image](https://github.com/chiaqingwu/line-bot/blob/master/pictures/04_error_habling.png)
